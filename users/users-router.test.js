@@ -8,28 +8,14 @@ describe('Auth Server', () => {
 
   const user = {
     username: 'testUser',
-    password: 'pass123',
-    department: 'sales'
+    password: 'pass123'
   };
-  describe('POST /register', () => {
+  describe('GET /users', () => {
     test('should returns status 201', () => {
       return request(server)
-        .post('/api/register')
-        .send(user)
+        .get('/users/')
         .then(res => {
           expect(res.status).toBe(201);
-        });
-    });
-  });
-
-  describe('POST /login', () => {
-    test('should return a JWT ', () => {
-      return request(server)
-        .post('/api/login')
-        .send(user)
-        .then(res => {
-          expect(res.body).toHaveProperty('message');
-          expect(res.body).toHaveProperty('token');
         });
     });
   });

@@ -13,7 +13,7 @@ describe('The Users Model', () => {
       department: 'sales'
     };
     test('should insert a new user', async () => {
-      // test setup
+      // Test Setup
       await Users.add(userData);
 
       // Assertion
@@ -25,15 +25,26 @@ describe('The Users Model', () => {
     });
 
     test('should resolve to the newly created user', async () => {
-      // test setup
+      // Test Setup
       const user = await Users.add(userData);
 
+      // Assertions
       expect(user).toEqual({
         id: 1,
         username: 'Elvis',
         password: 'pass123',
         department: 'sales'
       });
+    });
+  });
+
+  describe.skip('the find function', () => {
+    test('should insert a new user', async () => {
+      // Test Setup
+      await Users.find();
+
+      // Assertions
+      expect(res.data);
     });
   });
 });
